@@ -39,8 +39,12 @@ app.get("/hello", (req, res) => {
 });
 
 app.post("/urls", (req, res) => {
-  console.log(req.body);  // debug statement to see POST parameters
-  res.send("Ok");         // Respond with 'Ok' (we will replace this)
+  let gnShortUrl = generateRandomString();
+  
+  urlDatabase[gnShortUrl] = req.body.longURL;
+  
+ console.log(urlDatabase);  
+ res.redirect("http://localhost:8080/urls/" + gnShortUrl);         
 });
 
 app.listen(PORT, () => {
@@ -57,6 +61,3 @@ function generateRandomString() {
   
   return resultStr;
 }
-  
-console.log(generateRandomString());
-
