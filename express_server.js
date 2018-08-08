@@ -1,3 +1,13 @@
+function generateRandomString() {
+  let resultStr = '';
+  let possibleOutcomes = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  
+  for (let i = 0; i < 6; i++) {
+    resultStr += possibleOutcomes.charAt(Math.floor(Math.random() * possibleOutcomes.length));
+  }
+  
+  return resultStr;
+}
 var express = require("express");
 var app = express();
 var PORT = 8080; // default port 8080
@@ -38,26 +48,30 @@ app.get("/hello", (req, res) => {
   res.end("<html><body>Hello <b>World</b></body></html>\n");
 });
 
+app.post("/urls/:id", (req, res) => {
+  urlDatabase[req.params.id] =req.body.longURL;
+  res.redirect("/urls/" + req.params.id);
+});
+
+app.post("/urls/:id/delete", (req, res) => {
+  delete urlDatabase[req.params.id];
+  // console.log(req.params.id)
+  res.redirect("/urls")  
+});
+
+app.post("/urls:id/edit", (req, res) => {
+  res.redirect("/urls/:id")
+});
+
 app.post("/urls", (req, res) => {
   let gnShortUrl = generateRandomString();
   
   urlDatabase[gnShortUrl] = req.body.longURL;
-  
- console.log(urlDatabase);  
- res.redirect("http://localhost:8080/urls/" + gnShortUrl);         
-});
+  // console.log(urlDatabase);  
+  res.redirect("http://localhost:8080/urls/" + gnShortUrl);         
+ });
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}!`);
 });
 
-function generateRandomString() {
-  let resultStr = '';
-  let possibleOutcomes = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-  
-  for (let i = 0; i < 6; i++) {
-    resultStr += possibleOutcomes.charAt(Math.floor(Math.random() * possibleOutcomes.length));
-  }
-  
-  return resultStr;
-}

@@ -8,14 +8,15 @@
 </header>
 <body>
 
-
+  
     <% for(var link in urls) { %>
 
-      <li><%= link %></li>
-
+      <li><%= link %> <%= urls[link]%></li>
+      <a href='/urls/<%=link%>'>  Edit </a>
+      <form method = "POST" action="/urls/<%=link%>/delete">
+        <input type="submit" name="newURL" value='Delete'>
+      </form>
       <% } %>
-    <a href='#'> Shorten URL </a>
-
 
 </body>
 </html>
