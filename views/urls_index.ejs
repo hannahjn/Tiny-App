@@ -3,18 +3,17 @@
 <head>
   <title>TinyApp</title>
 </head>
-<header>
-    <% include partials/_header %>
-</header>
 <body>
+    <header>
+        <% include partials/_header %>
+    </header>
 
-  
-    <% for(var link in urls) { %>
+    <% for (var link in urls) { %>
 
-      <li><%= link %> <%= urls[link]%></li>
-      <a href='/urls/<%=link%>'>  Edit </a>
-      <form method = "POST" action="/urls/<%=link%>/delete">
-        <input type="submit" name="newURL" value='Delete'>
+      <li><%= link %> <%= urls[link] %></li>
+      <form method="POST" action="/urls/<%=link%>/delete">
+        <input type="submit" name="newURL" value='Delete'/>
+        <a href='/urls/<%=link%>'>  Edit </a>
       </form>
       <% } %>
 

@@ -1,3 +1,22 @@
 <h1>
-    HELLOOOOOOO
+    TinyApp
 </h1>
+</h2>
+
+</h2>
+<h3> 
+    <% if(user) {%>
+        <p><%= user.email%></p>
+        <button><a href="/logout">LOG OUT</a></button>
+    <%} else {%>
+        <form method="GET" action="login">
+            <input value="Login" type="submit"/>
+        </form>
+        <form method="GET" action="register">
+            <input type="submit" value="register" />
+        </form>
+    <%} %>
+</h3>
+
+
+
