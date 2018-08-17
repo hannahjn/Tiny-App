@@ -1,22 +1,22 @@
+<header>
 <h1>
     TinyApp
 </h1>
-</h2>
-
-</h2>
-<h3> 
+<h2> 
     <% if(user) {%>
         <p><%= user.email%></p>
-        <button><a href="/logout">LOG OUT</a></button>
+        <form method="POST" action="/logout">
+            <input value="Logout" type="submit"/>
+        </form>
     <%} else {%>
-        <form method="GET" action="login">
+        <form method="GET" action="/login">
             <input value="Login" type="submit"/>
         </form>
-        <form method="GET" action="register">
+        <form method="GET" action="/register">
             <input type="submit" value="register" />
         </form>
     <%} %>
-</h3>
-
+</h2>
+</header>
 
 

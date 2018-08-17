@@ -1,21 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>TinyApp</title>
-</head>
-<body>
-    <header>
-        <% include partials/_header %>
-    </header>
-
-    <% for (var link in urls) { %>
-
-      <li><%= link %> <%= urls[link] %></li>
-      <form method="POST" action="/urls/<%=link%>/delete">
-        <input type="submit" name="newURL" value='Delete'/>
-        <a href='/urls/<%=link%>'>  Edit </a>
-      </form>
-      <% } %>
-
-</body>
-</html>
+  <head>
+  <title>Tiny App</title>
+  </head>
+  <body>
+  <header>
+    <% include ./partials/_header %>
+  </header>
+  <p>
+    <ul>
+      
+      <% for(let key in urls) { %>
+          
+          <li><%= key %> <%= urls[key].urls %></li>
+          
+          <form action="/urls/<%= key  %>" method="POST">
+            <div>
+            </div>
+            <input id="newURL" type="text" name="newURL" value="<%= urls[key].longURL %>"/> 
+            <a href = "<%= urls[key].longURL %>"> Visit the site </a>
+          </form>
+          
+          <form action="/urls/<%= key %>/delete" method="POST">
+            <input type="submit" value="Delete">
+          </form>
+          
+          <form action="/urls/<%= key %>" method="GET">
+            <input type="submit" value="Edit">
+          </form>
+          
+          <% } %>
+          
+          <a href = "/urls/new"> Create new short URL</a>
+          </ul>
+        </p>
+  </body>
+  </html>
