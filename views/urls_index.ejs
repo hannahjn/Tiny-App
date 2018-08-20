@@ -8,8 +8,8 @@
   </header>
   <p>
     <ul>
-      
-      <% for(let key in urls) { %>
+      <% if(user) {%>
+        <% for(let key in urls) { %>
           
           <li><%= key %> <%= urls[key].urls %></li>
           
@@ -29,9 +29,10 @@
           </form>
           
           <% } %>
-          
           <a href = "/urls/new"> Create new short URL</a>
-          </ul>
-        </p>
+          
+        </ul>
+      </p>
+    <% } %>
   </body>
   </html>
