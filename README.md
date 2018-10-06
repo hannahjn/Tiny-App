@@ -18,7 +18,7 @@ New URL Form (https://github.com/hannahjn/Tiny-App/blob/f7b5e7e18059149c5e16082b
 - body-parser
 - cookie-session
 
-## Dependencies
+## Set up
 ```
 npm install
 ```
