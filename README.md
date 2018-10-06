@@ -18,3 +18,12 @@ New URL Form (https://github.com/hannahjn/Tiny-App/blob/f7b5e7e18059149c5e16082b
 - body-parser
 - cookie-session
 
+## Dependencies
+```
+npm install
+```
+to install dependencies. 
+```
+npm run
+```
+to host on localhost:8080
