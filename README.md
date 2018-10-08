@@ -1,5 +1,6 @@
-# TinyApp Project
+# TinyApp
 TinyApp is a full stack web application built with Node and Express. It allows users to shorten long URLs.
+First project for Lighthouse Labs Montreal.
 
 ## Final Product
 
